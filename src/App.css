@@ -1,0 +1,179 @@
+/* App.css — DripDen Specific Component Animations & Enhancements */
+
+/* Prevent layout shifts on mobile */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Smooth page-level padding for mobile bottom nav */
+@media (max-width: 859px) {
+  main {
+    padding-bottom: var(--mobile-nav-height);
+  }
+}
+
+/* Lucide icons baseline alignment fix */
+svg.lucide {
+  flex-shrink: 0;
+}
+
+/* Image loading skeleton animation */
+@keyframes skeletonPulse {
+  0% { background-color: #f0ece8; }
+  50% { background-color: #e5e0db; }
+  100% { background-color: #f0ece8; }
+}
+
+.skeleton {
+  animation: skeletonPulse 1.6s ease-in-out infinite;
+  border-radius: var(--radius-md);
+}
+
+/* Spinner for async loading states */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Hide scrollbars on horizontal scroll containers */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Product card hover lift on desktop */
+@media (min-width: 860px) {
+  .product-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 16px 36px rgba(14, 14, 14, 0.1) !important;
+  }
+  .shop-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 14px 32px rgba(14, 14, 14, 0.08) !important;
+  }
+}
+
+/* Range input track styling for Firefox */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--border-medium);
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary-purple);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(168, 92, 255, 0.35);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary-purple);
+  cursor: pointer;
+  border: none;
+}
+
+/* Radio button styling */
+input[type="radio"] {
+  accent-color: var(--primary-purple);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  accent-color: var(--primary-purple);
+  cursor: pointer;
+}
+
+/* Select styling cross-browser */
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Focus visible styles for accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--primary-purple);
+  outline-offset: 2px;
+}
+
+/* Prevent text selection on buttons */
+button {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Hero scroll indicator bounce */
+@keyframes heroBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(6px);
+  }
+  60% {
+    transform: translateY(3px);
+  }
+}
+
+.bounce-animation {
+  animation: heroBounce 2s infinite ease-in-out;
+}
+
+.hero-scroll-indicator:hover {
+  color: var(--deep-black) !important;
+  transform: translateY(2px);
+}
+
+/* Caret blinking animation for Hero headline */
+@keyframes heroCaretBlink {
+  0%, 49.9% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.hero-caret-dot {
+  display: inline;
+  animation: heroCaretBlink 0.9s infinite;
+  color: #000000;
+  user-select: none;
+  font-family: inherit;
+  margin-left: 2px;
+}
+
+/* Responsive positioning of hero center text on mobile so it sits in clear space below the cap */
+@media (max-width: 600px) {
+  .hero-center-container {
+    padding-top: 3.5rem !important;
+  }
+}
+
