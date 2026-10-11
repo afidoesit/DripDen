@@ -84,29 +84,29 @@ export const ProfileView = ({
     return (
       <div className="container" style={{ padding: '2.5rem 1rem 5rem', maxWidth: '780px' }}>
         <div style={{
-          background: 'linear-gradient(135deg, #18181B 0%, #2A173B 100%)',
-          borderRadius: 'var(--radius-xl)',
+          background: '#141414',
+          borderRadius: 'var(--radius-md)',
           padding: '3rem 2rem',
           color: '#FFFFFF',
           textAlign: 'center',
-          boxShadow: 'var(--shadow-md)',
-          border: '1px solid rgba(168, 92, 255, 0.25)'
+          boxShadow: 'none',
+          border: '1px solid rgba(255, 255, 255, 0.12)'
         }}>
           <div style={{
-            width: '68px',
-            height: '68px',
-            borderRadius: '50%',
-            background: 'linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-pink) 100%)',
+            width: '64px',
+            height: '64px',
+            borderRadius: 'var(--radius-xs)',
+            background: 'var(--deep-black)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            margin: '0 auto 1.5rem',
-            boxShadow: '0 8px 24px rgba(168, 92, 255, 0.4)'
+            margin: '0 auto 1.5rem'
           }}>
-            <User size={34} color="#FFFFFF" />
+            <User size={30} color="#FFFFFF" />
           </div>
 
-          <span className="drip-badge badge-mint" style={{ marginBottom: '0.75rem', display: 'inline-block' }}>
+          <span className="drip-badge badge-mint" style={{ marginBottom: '0.75rem', display: 'inline-block', borderRadius: 'var(--radius-xs)' }}>
             DRIPDEN KERALA ACCOUNT
           </span>
 
@@ -115,14 +115,14 @@ export const ProfileView = ({
           </h2>
 
           <p style={{ fontSize: '0.92rem', color: 'rgba(255, 255, 255, 0.78)', maxWidth: '480px', margin: '0 auto 2rem', lineHeight: 1.6 }}>
-            Sign in to track your boutique drops, manage local Kerala addresses across all 14 districts, and earn DripCoins.
+            Sign in to track your boutique drops, manage local Kerala addresses across all 14 districts, and access saved drops.
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
             <button
               onClick={() => setIsAuthModalOpen(true)}
               className="btn-primary"
-              style={{ padding: '0.85rem 2rem', fontSize: '0.95rem' }}
+              style={{ padding: '0.85rem 2rem', fontSize: '0.92rem', borderRadius: 'var(--radius-xs)', border: '1px solid #FFFFFF' }}
             >
               <User size={18} />
               <span>Sign In / Register</span>
@@ -193,34 +193,21 @@ export const ProfileView = ({
           </div>
         </div>
 
-        {/* User Hero Banner Card */}
+        {/* User Hero Banner Card - Disciplined Streetwear Editorial */}
         <div style={{
-          background: 'linear-gradient(135deg, #141416 0%, #241432 100%)',
-          borderRadius: 'var(--radius-xl)',
-          padding: 'clamp(1.25rem, 3vw, 2rem)',
+          background: '#141414',
+          borderRadius: 'var(--radius-md)',
+          padding: 'clamp(1.25rem, 3vw, 1.75rem)',
           color: '#FFFFFF',
-          border: '1px solid rgba(168, 92, 255, 0.25)',
-          boxShadow: '0 8px 30px rgba(0, 0, 0, 0.15)',
+          border: '1px solid rgba(255, 255, 255, 0.12)',
+          boxShadow: 'none',
           marginBottom: '1.75rem',
-          position: 'relative',
-          overflow: 'hidden'
+          position: 'relative'
         }}>
-          {/* Subtle Ambient Glow */}
-          <div style={{
-            position: 'absolute',
-            top: '-40px',
-            right: '-40px',
-            width: '180px',
-            height: '180px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(168, 92, 255, 0.3) 0%, transparent 70%)',
-            pointerEvents: 'none'
-          }} />
-
           <div style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '1.5rem'
+            gap: '1.25rem'
           }}>
             {/* Top row: Avatar, Info, and Actions */}
             <div style={{
@@ -231,21 +218,20 @@ export const ProfileView = ({
               gap: '1.25rem'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
-                {/* Glowing Avatar */}
+                {/* Square Editorial Avatar */}
                 <div style={{
-                  width: '68px',
-                  height: '68px',
-                  borderRadius: '50%',
-                  background: 'linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-pink) 100%)',
+                  width: '64px',
+                  height: '64px',
+                  borderRadius: 'var(--radius-xs)',
+                  background: 'var(--deep-black)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: '1.75rem',
+                  fontSize: '1.6rem',
                   fontWeight: '900',
                   color: '#FFFFFF',
                   fontFamily: 'var(--font-heading)',
-                  boxShadow: '0 4px 20px rgba(168, 92, 255, 0.45)',
-                  border: '2px solid rgba(255, 255, 255, 0.25)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
                   flexShrink: 0
                 }}>
                   {currentUser.displayName ? currentUser.displayName[0].toUpperCase() : 'U'}
@@ -363,9 +349,9 @@ export const ProfileView = ({
         {/* Profile Content Container */}
         <div style={{
           background: '#FFFFFF',
-          borderRadius: 'var(--radius-xl)',
+          borderRadius: 'var(--radius-md)',
           border: '1px solid var(--border-medium)',
-          boxShadow: 'var(--shadow-sm)',
+          boxShadow: 'none',
           overflow: 'hidden'
         }}>
           {/* Profile Tabs Navigation */}

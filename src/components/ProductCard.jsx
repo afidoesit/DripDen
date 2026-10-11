@@ -32,26 +32,27 @@ export const ProductCard = ({ product, onOpenDetails, onOpenShop }) => {
     <div
       onClick={() => onOpenDetails(product)}
       style={{
-        backgroundColor: '#FFFFFF',
-        borderRadius: 'var(--radius-lg)',
-        overflow: 'hidden',
-        border: '1px solid var(--border-light)',
+        backgroundColor: 'transparent',
+        borderRadius: '0px',
+        border: 'none',
         display: 'flex',
         flexDirection: 'column',
         position: 'relative',
         cursor: 'pointer',
-        boxShadow: 'var(--shadow-sm)',
-        transition: 'transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease'
+        boxShadow: 'none',
+        transition: 'opacity 0.2s ease'
       }}
       className="product-card"
     >
-      {/* Top Image Container */}
+      {/* Top Image Container - Sharp 2px editorial framing */}
       <div style={{
         position: 'relative',
         width: '100%',
-        aspectRatio: '1 / 1.15',
-        backgroundColor: '#F0ECE6',
-        overflow: 'hidden'
+        aspectRatio: '1 / 1.2',
+        backgroundColor: '#EBE7E0',
+        borderRadius: 'var(--radius-xs)',
+        overflow: 'hidden',
+        border: '1px solid rgba(14, 14, 14, 0.06)'
       }}>
         <img
           src={product.images[0]}
@@ -69,83 +70,85 @@ export const ProductCard = ({ product, onOpenDetails, onOpenShop }) => {
         {/* Badges: Discount & Status */}
         <div style={{
           position: 'absolute',
-          top: '0.65rem',
-          left: '0.65rem',
+          top: '0.5rem',
+          left: '0.5rem',
           display: 'flex',
           flexDirection: 'column',
-          gap: '0.35rem'
+          gap: '0.25rem',
+          zIndex: 2
         }}>
           {product.discountPercentage && (
-            <span className="drip-badge badge-black" style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem' }}>
+            <span className="drip-badge badge-black" style={{ fontSize: '0.62rem', padding: '0.15rem 0.45rem', borderRadius: 'var(--radius-xs)' }}>
               {product.discountPercentage}% OFF
             </span>
           )}
           {product.badge && (
-            <span className="drip-badge badge-purple-subtle" style={{ fontSize: '0.6rem', padding: '0.15rem 0.45rem', backdropFilter: 'blur(4px)' }}>
+            <span className="drip-badge badge-purple-subtle" style={{ fontSize: '0.6rem', padding: '0.12rem 0.4rem', borderRadius: 'var(--radius-xs)' }}>
               {product.badge}
             </span>
           )}
         </div>
 
-        {/* Wishlist Button */}
+        {/* Wishlist Button - Sleek square/subtle icon */}
         <button
           onClick={handleWishlistToggle}
           style={{
             position: 'absolute',
-            top: '0.65rem',
-            right: '0.65rem',
-            width: '32px',
-            height: '32px',
-            borderRadius: '50%',
-            backgroundColor: 'rgba(255, 255, 255, 0.9)',
-            backdropFilter: 'blur(6px)',
+            top: '0.5rem',
+            right: '0.5rem',
+            width: '30px',
+            height: '30px',
+            borderRadius: 'var(--radius-xs)',
+            backgroundColor: 'rgba(255, 255, 255, 0.92)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.12)',
-            zIndex: 2
+            border: '1px solid rgba(14, 14, 14, 0.08)',
+            zIndex: 2,
+            transition: 'background-color 0.15s ease'
           }}
           title={isFavorited ? 'Remove from Wishlist' : 'Add to Wishlist'}
         >
           <Heart 
-            size={16} 
+            size={15} 
             color={isFavorited ? 'var(--accent-pink)' : 'var(--deep-black)'} 
             fill={isFavorited ? 'var(--accent-pink)' : 'none'} 
           />
         </button>
 
-        {/* Quick Add To Cart Button */}
+        {/* Quick Add To Cart Button - Restrained editorial 2px button */}
         <button
           onClick={handleQuickAdd}
           style={{
             position: 'absolute',
-            bottom: '0.65rem',
-            right: '0.65rem',
-            height: '34px',
-            padding: '0 0.85rem',
-            borderRadius: 'var(--radius-pill)',
+            bottom: '0.5rem',
+            right: '0.5rem',
+            height: '30px',
+            padding: '0 0.75rem',
+            borderRadius: 'var(--radius-xs)',
             backgroundColor: 'var(--deep-black)',
             color: '#FFFFFF',
             display: 'flex',
             alignItems: 'center',
-            gap: '0.35rem',
-            fontSize: '0.75rem',
+            gap: '0.3rem',
+            fontSize: '0.72rem',
             fontWeight: '700',
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+            letterSpacing: '0.02em',
+            border: '1px solid var(--deep-black)',
             zIndex: 2,
-            transition: 'all 0.2s ease'
+            transition: 'all 0.18s ease'
           }}
           className="quick-add-btn"
           title="Quick Add"
         >
-          <Plus size={14} />
-          <span>Add</span>
+          <Plus size={13} />
+          <span>ADD</span>
         </button>
       </div>
 
-      {/* Product Details Section */}
+      {/* Product Details Section - Connected through whitespace & typography */}
       <div style={{
-        padding: '0.85rem 0.95rem 1rem',
+        padding: '0.65rem 0.1rem 0.25rem',
         display: 'flex',
         flexDirection: 'column',
         flex: 1,
@@ -159,14 +162,16 @@ export const ProductCard = ({ product, onOpenDetails, onOpenShop }) => {
               display: 'flex',
               alignItems: 'center',
               gap: '0.3rem',
-              fontSize: '0.72rem',
+              fontSize: '0.7rem',
               color: 'var(--muted-text)',
-              marginBottom: '0.35rem',
-              fontWeight: '600'
+              marginBottom: '0.25rem',
+              fontWeight: '600',
+              textTransform: 'uppercase',
+              letterSpacing: '0.03em'
             }}
             title={`Sold by ${product.shopName}`}
           >
-            <Store size={12} color="var(--primary-purple)" />
+            <Store size={11} color="var(--primary-purple)" />
             <span style={{ 
               overflow: 'hidden', 
               textOverflow: 'ellipsis', 
@@ -176,16 +181,16 @@ export const ProductCard = ({ product, onOpenDetails, onOpenShop }) => {
               {product.shopName}
             </span>
             <span>•</span>
-            <span style={{ textTransform: 'capitalize' }}>{product.district}</span>
+            <span>{product.district}</span>
           </div>
 
           {/* Product Title */}
           <h3 style={{
-            fontSize: '0.92rem',
-            fontWeight: '700',
+            fontSize: '0.88rem',
+            fontWeight: '600',
             color: 'var(--deep-black)',
-            lineHeight: 1.3,
-            marginBottom: '0.45rem',
+            lineHeight: 1.35,
+            marginBottom: '0.35rem',
             display: '-webkit-box',
             WebkitLineClamp: 2,
             WebkitBoxOrient: 'vertical',
@@ -200,11 +205,11 @@ export const ProductCard = ({ product, onOpenDetails, onOpenShop }) => {
           <div style={{
             display: 'flex',
             alignItems: 'baseline',
-            gap: '0.5rem',
-            marginBottom: '0.2rem'
+            gap: '0.45rem',
+            marginBottom: '0.15rem'
           }}>
             <span style={{
-              fontSize: '1.05rem',
+              fontSize: '1rem',
               fontWeight: '800',
               fontFamily: 'var(--font-heading)',
               color: 'var(--deep-black)'
@@ -213,7 +218,7 @@ export const ProductCard = ({ product, onOpenDetails, onOpenShop }) => {
             </span>
             {product.originalPrice && (
               <span style={{
-                fontSize: '0.78rem',
+                fontSize: '0.75rem',
                 color: 'var(--light-muted)',
                 textDecoration: 'line-through'
               }}>
@@ -223,15 +228,15 @@ export const ProductCard = ({ product, onOpenDetails, onOpenShop }) => {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.2rem', fontSize: '0.72rem', color: 'var(--muted-text)' }}>
-              <Star size={12} fill="#FFB800" color="#FFB800" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.2rem', fontSize: '0.7rem', color: 'var(--muted-text)' }}>
+              <Star size={11} fill="#FFB800" color="#FFB800" />
               <span style={{ fontWeight: '700', color: 'var(--deep-black)' }}>{product.rating}</span>
               <span>({product.reviewCount})</span>
             </div>
 
             {product.stock <= 10 && (
-              <span style={{ fontSize: '0.68rem', color: '#e63946', fontWeight: '600' }}>
-                Only {product.stock} left
+              <span style={{ fontSize: '0.65rem', color: '#e63946', fontWeight: '700', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+                Only {product.stock} Left
               </span>
             )}
           </div>
@@ -239,16 +244,12 @@ export const ProductCard = ({ product, onOpenDetails, onOpenShop }) => {
       </div>
 
       <style>{`
-        .product-card:hover {
-          transform: translateY(-4px);
-          box-shadow: var(--shadow-md);
-          border-color: var(--border-medium);
-        }
         .product-card:hover .prod-img {
-          transform: scale(1.04);
+          transform: scale(1.03);
         }
         .quick-add-btn:hover {
           background-color: var(--primary-purple) !important;
+          border-color: var(--primary-purple) !important;
         }
       `}</style>
     </div>

@@ -42,17 +42,19 @@ export const AuthModal = () => {
         style={{ 
           maxWidth: '480px', 
           width: '95%',
-          borderRadius: 'var(--radius-xl)',
-          padding: '2rem'
+          borderRadius: 'var(--radius-lg)',
+          padding: '1.75rem',
+          border: '1px solid var(--border-medium)',
+          boxShadow: 'var(--shadow-lg)'
         }}
       >
         {/* Header */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
           <div>
-            <h3 style={{ fontSize: '1.4rem', fontWeight: '800' }}>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '800' }}>
               {authView === 'login' ? 'Sign in to DripDen' : 'Create Customer Account'}
             </h3>
-            <p style={{ fontSize: '0.82rem', color: 'var(--muted-text)', marginTop: '0.2rem' }}>
+            <p style={{ fontSize: '0.8rem', color: 'var(--muted-text)', marginTop: '0.2rem' }}>
               {authView === 'login' 
                 ? 'Access your orders, saved addresses, and Kerala boutique drops.' 
                 : 'Join Kerala\'s premier Gen-Z fashion shopping platform.'}
@@ -61,32 +63,33 @@ export const AuthModal = () => {
           <button
             onClick={() => setIsAuthModalOpen(false)}
             style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '50%',
+              width: '32px',
+              height: '32px',
+              borderRadius: 'var(--radius-xs)',
               background: 'var(--warm-off-white)',
+              border: '1px solid var(--border-light)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
             }}
           >
-            <X size={18} />
+            <X size={16} />
           </button>
         </div>
 
         {/* Demo Fast Login Banner */}
         <div style={{
-          padding: '0.85rem 1rem',
-          background: 'var(--primary-purple-soft)',
-          borderRadius: 'var(--radius-md)',
-          border: '1px solid rgba(168, 92, 255, 0.25)',
+          padding: '0.75rem 0.95rem',
+          background: 'var(--warm-off-white)',
+          borderRadius: 'var(--radius-xs)',
+          border: '1px solid var(--border-medium)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           marginBottom: '1.25rem'
         }}>
           <div>
-            <div style={{ fontSize: '0.82rem', fontWeight: '700', color: 'var(--deep-black)' }}>
+            <div style={{ fontSize: '0.8rem', fontWeight: '700', color: 'var(--deep-black)' }}>
               Quick Demo Customer
             </div>
             <div style={{ fontSize: '0.72rem', color: 'var(--muted-text)' }}>
@@ -97,9 +100,9 @@ export const AuthModal = () => {
             type="button"
             onClick={demoLogin}
             className="btn-primary"
-            style={{ padding: '0.4rem 0.85rem', fontSize: '0.75rem', borderRadius: 'var(--radius-pill)' }}
+            style={{ padding: '0.35rem 0.75rem', fontSize: '0.72rem', borderRadius: 'var(--radius-xs)', textTransform: 'uppercase' }}
           >
-            Instant Login
+            Demo Login
           </button>
         </div>
 
@@ -240,7 +243,7 @@ export const AuthModal = () => {
             type="submit"
             disabled={loading}
             className="btn-dark"
-            style={{ width: '100%', height: '48px', marginTop: '0.5rem', borderRadius: 'var(--radius-pill)' }}
+            style={{ width: '100%', height: '46px', marginTop: '0.5rem', borderRadius: 'var(--radius-xs)', letterSpacing: '0.02em', textTransform: 'uppercase' }}
           >
             {loading ? 'Please wait...' : authView === 'login' ? 'Sign In' : 'Create Account'}
           </button>

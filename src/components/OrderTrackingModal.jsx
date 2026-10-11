@@ -30,7 +30,7 @@ export const OrderTrackingModal = ({ order, onClose }) => {
           maxWidth: '680px', 
           width: '95%',
           maxHeight: '90vh',
-          borderRadius: 'var(--radius-xl)',
+          borderRadius: '6px',
           padding: '1.75rem'
         }}
       >
@@ -58,23 +58,23 @@ export const OrderTrackingModal = ({ order, onClose }) => {
           <button
             onClick={onClose}
             style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '50%',
+              width: '32px',
+              height: '32px',
+              borderRadius: '2px',
               background: 'var(--warm-off-white)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
             }}
           >
-            <X size={18} />
+            <X size={16} />
           </button>
         </div>
 
         {/* Current status highlight banner */}
         <div style={{
           padding: '1rem 1.25rem',
-          borderRadius: 'var(--radius-md)',
+          borderRadius: '4px',
           background: order.status === 'Cancelled' ? '#ffe3e3' : 'var(--warm-off-white)',
           border: '1px solid var(--border-medium)',
           display: 'flex',
@@ -109,7 +109,7 @@ export const OrderTrackingModal = ({ order, onClose }) => {
           </h4>
 
           {order.status === 'Cancelled' ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#c92a2a', padding: '1rem', background: '#ffe3e3', borderRadius: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#c92a2a', padding: '1rem', background: '#ffe3e3', borderRadius: '4px' }}>
               <AlertCircle size={20} />
               <span>This order has been cancelled.</span>
             </div>
@@ -179,8 +179,9 @@ export const OrderTrackingModal = ({ order, onClose }) => {
         {/* Delivery Address & Ordered Items */}
         <div style={{
           padding: '1.25rem',
-          borderRadius: 'var(--radius-lg)',
+          borderRadius: '4px',
           background: 'var(--warm-off-white)',
+          border: '1px solid var(--border-light)',
           display: 'flex',
           flexDirection: 'column',
           gap: '1rem'

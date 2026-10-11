@@ -40,16 +40,17 @@ export const CartDrawer = ({ onProceedToCheckout }) => {
           <button
             onClick={() => setIsCartOpen(false)}
             style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '50%',
+              width: '32px',
+              height: '32px',
+              borderRadius: 'var(--radius-xs)',
               background: 'var(--warm-off-white)',
+              border: '1px solid var(--border-light)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
             }}
           >
-            <X size={18} />
+            <X size={16} />
           </button>
         </div>
 
@@ -125,13 +126,14 @@ export const CartDrawer = ({ onProceedToCheckout }) => {
                   borderBottom: '1px solid var(--border-light)'
                 }}
               >
-                {/* Item Thumbnail */}
+                {/* Item Thumbnail - 2px square */}
                 <div style={{
                   width: '74px',
                   height: '88px',
-                  borderRadius: 'var(--radius-md)',
+                  borderRadius: 'var(--radius-xs)',
                   overflow: 'hidden',
-                  backgroundColor: '#F0ECE6',
+                  backgroundColor: '#EBE7E0',
+                  border: '1px solid var(--border-light)',
                   flexShrink: 0
                 }}>
                   <img src={item.image} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -179,7 +181,7 @@ export const CartDrawer = ({ onProceedToCheckout }) => {
                       display: 'inline-flex',
                       alignItems: 'center',
                       border: '1px solid var(--border-medium)',
-                      borderRadius: 'var(--radius-pill)',
+                      borderRadius: 'var(--radius-xs)',
                       overflow: 'hidden',
                       height: '28px'
                     }}>
@@ -252,7 +254,7 @@ export const CartDrawer = ({ onProceedToCheckout }) => {
                 onProceedToCheckout();
               }}
               className="btn-primary"
-              style={{ width: '100%', height: '48px', borderRadius: 'var(--radius-pill)' }}
+              style={{ width: '100%', height: '48px', borderRadius: 'var(--radius-md)' }}
             >
               <span>PROCEED TO CHECKOUT</span>
               <ArrowRight size={18} />

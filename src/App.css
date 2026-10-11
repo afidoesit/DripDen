@@ -50,16 +50,18 @@ svg.lucide {
   display: none;
 }
 
-/* Product card hover lift on desktop */
-@media (min-width: 860px) {
-  .product-card:hover {
-    transform: translateY(-6px) !important;
-    box-shadow: 0 16px 36px rgba(14, 14, 14, 0.1) !important;
-  }
-  .shop-card:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 14px 32px rgba(14, 14, 14, 0.08) !important;
-  }
+/* Editorial product & shop image interactions - Subtle & confident (No float lift) */
+.product-card {
+  transition: opacity 0.2s ease;
+}
+.product-card:hover .prod-img {
+  transform: scale(1.03);
+}
+.shop-card {
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+.shop-card:hover {
+  border-color: var(--deep-black) !important;
 }
 
 /* Range input track styling for Firefox */

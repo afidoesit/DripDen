@@ -7,6 +7,7 @@ import { CategorySection } from './components/CategorySection';
 import { ProductCard } from './components/ProductCard';
 import { ProductGrid } from './components/ProductGrid';
 import { ProductDetailModal } from './components/ProductDetailModal';
+import { ShopCard } from './components/ShopCard';
 import { ShopGrid } from './components/ShopGrid';
 import { ShopDetailView } from './components/ShopDetailView';
 import { CartDrawer } from './components/CartDrawer';
@@ -173,7 +174,7 @@ export function App() {
             </section>
 
             {/* 4. Discover Local Shops Showcase */}
-            <section style={{ padding: '3.5rem 0', backgroundColor: 'rgba(255, 255, 255, 0.72)', backdropFilter: 'blur(10px)', borderTop: '1px solid var(--border-light)', borderBottom: '1px solid var(--border-light)' }}>
+            <section style={{ padding: '3.5rem 0', borderTop: '1px solid rgba(14, 14, 14, 0.08)', borderBottom: '1px solid rgba(14, 14, 14, 0.08)' }}>
               <div className="container">
                 <div style={{
                   display: 'flex',
@@ -208,57 +209,18 @@ export function App() {
                   </button>
                 </div>
 
-                {/* Top 3 Featured Shops */}
+                {/* Top 3 Featured Shops - Consistent Editorial Grid */}
                 <div style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                  gap: '1.5rem'
+                  gap: '1.25rem'
                 }}>
                   {featuredShops.map((shop) => (
-                    <div
+                    <ShopCard
                       key={shop.id}
-                      onClick={() => handleOpenShop(shop.id)}
-                      style={{
-                        borderRadius: 'var(--radius-lg)',
-                        overflow: 'hidden',
-                        border: '1px solid var(--border-medium)',
-                        backgroundColor: 'var(--warm-off-white)',
-                        cursor: 'pointer',
-                        transition: 'transform 0.2s ease, box-shadow 0.2s ease'
-                      }}
-                      className="shop-card"
-                    >
-                      <div style={{ height: '140px', position: 'relative' }}>
-                        <img src={shop.banner} alt={shop.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                        <div style={{
-                          position: 'absolute',
-                          top: '0.75rem',
-                          right: '0.75rem',
-                          background: 'rgba(14, 14, 14, 0.8)',
-                          color: '#FFFFFF',
-                          padding: '0.25rem 0.65rem',
-                          borderRadius: 'var(--radius-pill)',
-                          fontSize: '0.7rem',
-                          fontWeight: '700'
-                        }}>
-                          {shop.districtName || shop.district}
-                        </div>
-                      </div>
-
-                      <div style={{ padding: '1rem 1.25rem', position: 'relative' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.35rem' }}>
-                          <h3 style={{ fontSize: '1.05rem', fontWeight: '800' }}>{shop.name}</h3>
-                          <span style={{ fontSize: '0.75rem', fontWeight: '700', color: '#8A6800' }}>★ {shop.rating}</span>
-                        </div>
-                        <p style={{ fontSize: '0.78rem', color: 'var(--muted-text)', marginBottom: '0.75rem' }}>
-                          {shop.locality} • {shop.category}
-                        </p>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.8rem', fontWeight: '700' }}>
-                          <span style={{ color: 'var(--primary-purple)' }}>{shop.productCount || 18}+ Drops</span>
-                          <span>View Shop →</span>
-                        </div>
-                      </div>
-                    </div>
+                      shop={shop}
+                      onVisitShop={handleOpenShop}
+                    />
                   ))}
                 </div>
               </div>
@@ -310,7 +272,7 @@ export function App() {
             </section>
 
             {/* 6. Popular in Kerala */}
-            <section style={{ padding: '3.5rem 0', backgroundColor: 'rgba(255, 255, 255, 0.72)', backdropFilter: 'blur(10px)', borderTop: '1px solid var(--border-light)' }}>
+            <section style={{ padding: '3.5rem 0', borderTop: '1px solid rgba(14, 14, 14, 0.08)' }}>
               <div className="container">
                 <div style={{
                   display: 'flex',

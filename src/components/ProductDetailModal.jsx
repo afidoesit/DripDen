@@ -46,10 +46,12 @@ export const ProductDetailModal = ({ product, onClose, onOpenShop, onDirectCheck
           maxWidth: '880px', 
           width: '95%',
           maxHeight: '92vh',
-          borderRadius: 'var(--radius-xl)',
+          borderRadius: 'var(--radius-lg)',
           overflow: 'hidden',
           display: 'flex',
-          flexDirection: 'column'
+          flexDirection: 'column',
+          border: '1px solid var(--border-medium)',
+          boxShadow: 'var(--shadow-lg)'
         }}
       >
         {/* Header bar */}
@@ -57,27 +59,28 @@ export const ProductDetailModal = ({ product, onClose, onOpenShop, onDirectCheck
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '1rem 1.5rem',
+          padding: '0.85rem 1.25rem',
           borderBottom: '1px solid var(--border-light)',
           background: '#FFFFFF'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <span className="drip-badge badge-purple-subtle" style={{ textTransform: 'uppercase' }}>
+            <span className="drip-badge badge-purple-subtle" style={{ textTransform: 'uppercase', borderRadius: 'var(--radius-xs)' }}>
               {product.category}
             </span>
-            <span style={{ fontSize: '0.8rem', color: 'var(--muted-text)' }}>
-              Drop ID: {product.id}
+            <span style={{ fontSize: '0.78rem', color: 'var(--muted-text)', letterSpacing: '0.04em' }}>
+              DROP #{product.id}
             </span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
             <button
               onClick={handleShare}
               style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '50%',
+                width: '32px',
+                height: '32px',
+                borderRadius: 'var(--radius-xs)',
                 background: 'var(--warm-off-white)',
+                border: '1px solid var(--border-light)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -85,22 +88,23 @@ export const ProductDetailModal = ({ product, onClose, onOpenShop, onDirectCheck
               }}
               title="Copy product link"
             >
-              <Share2 size={16} />
+              <Share2 size={14} />
             </button>
             <button
               onClick={onClose}
               style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '50%',
+                width: '32px',
+                height: '32px',
+                borderRadius: 'var(--radius-xs)',
                 background: 'var(--warm-off-white)',
+                border: '1px solid var(--border-light)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: 'var(--deep-black)'
               }}
             >
-              <X size={18} />
+              <X size={16} />
             </button>
           </div>
         </div>
@@ -110,19 +114,19 @@ export const ProductDetailModal = ({ product, onClose, onOpenShop, onDirectCheck
           display: 'grid',
           gridTemplateColumns: '1fr',
           gap: '2rem',
-          padding: '1.5rem',
+          padding: '1.25rem',
           overflowY: 'auto'
         }} className="product-modal-grid">
           
           {/* Gallery Column */}
           <div>
             <div style={{
-              borderRadius: 'var(--radius-lg)',
+              borderRadius: 'var(--radius-xs)',
               overflow: 'hidden',
-              backgroundColor: '#F0ECE6',
+              backgroundColor: '#EBE7E0',
               aspectRatio: '1 / 1.15',
               position: 'relative',
-              boxShadow: 'var(--shadow-sm)'
+              border: '1px solid var(--border-light)'
             }}>
               <img
                 src={product.images[activeImageIdx] || product.images[0]}
@@ -218,9 +222,11 @@ export const ProductDetailModal = ({ product, onClose, onOpenShop, onDirectCheck
                   background: 'var(--deep-black)',
                   color: '#FFFFFF',
                   padding: '0.45rem 0.95rem',
-                  borderRadius: 'var(--radius-pill)',
+                  borderRadius: 'var(--radius-xs)',
                   fontSize: '0.78rem',
-                  fontWeight: '700'
+                  fontWeight: '700',
+                  letterSpacing: '0.02em',
+                  textTransform: 'uppercase'
                 }}
               >
                 Visit Shop
@@ -321,14 +327,14 @@ export const ProductDetailModal = ({ product, onClose, onOpenShop, onDirectCheck
                         onClick={() => setSelectedSize(s)}
                         style={{
                           minWidth: '44px',
-                          height: '42px',
+                          height: '40px',
                           padding: '0 0.85rem',
-                          borderRadius: 'var(--radius-md)',
+                          borderRadius: 'var(--radius-xs)',
                           background: isSelected ? 'var(--deep-black)' : '#FFFFFF',
                           color: isSelected ? '#FFFFFF' : 'var(--deep-black)',
                           border: isSelected ? '2px solid var(--deep-black)' : '1px solid var(--border-medium)',
                           fontWeight: '700',
-                          fontSize: '0.85rem',
+                          fontSize: '0.82rem',
                           transition: 'all 0.15s ease'
                         }}
                       >
@@ -354,12 +360,11 @@ export const ProductDetailModal = ({ product, onClose, onOpenShop, onDirectCheck
                         key={i}
                         onClick={() => setSelectedColor(c)}
                         style={{
-                          width: '34px',
-                          height: '34px',
-                          borderRadius: '50%',
+                          width: '32px',
+                          height: '32px',
+                          borderRadius: 'var(--radius-xs)',
                           backgroundColor: c.hex,
-                          border: isSelected ? '3px solid var(--primary-purple)' : '2px solid #FFFFFF',
-                          boxShadow: '0 0 0 1px rgba(0,0,0,0.15)',
+                          border: isSelected ? '2px solid var(--primary-purple)' : '1px solid var(--border-medium)',
                           position: 'relative',
                           display: 'flex',
                           alignItems: 'center',
@@ -367,7 +372,7 @@ export const ProductDetailModal = ({ product, onClose, onOpenShop, onDirectCheck
                         }}
                         title={c.name}
                       >
-                        {isSelected && <Check size={14} color={c.hex === '#0E0E0E' ? '#FFFFFF' : '#000000'} />}
+                        {isSelected && <Check size={13} color={c.hex === '#0E0E0E' ? '#FFFFFF' : '#000000'} />}
                       </button>
                     );
                   })}
@@ -382,22 +387,22 @@ export const ProductDetailModal = ({ product, onClose, onOpenShop, onDirectCheck
                 display: 'inline-flex',
                 alignItems: 'center',
                 border: '1px solid var(--border-medium)',
-                borderRadius: 'var(--radius-pill)',
+                borderRadius: 'var(--radius-xs)',
                 background: '#FFFFFF',
                 overflow: 'hidden'
               }}>
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  style={{ width: '36px', height: '36px', fontWeight: '700', fontSize: '1.1rem' }}
+                  style={{ width: '34px', height: '34px', fontWeight: '700', fontSize: '1rem' }}
                 >
                   -
                 </button>
-                <span style={{ width: '36px', textAlign: 'center', fontWeight: '700', fontSize: '0.9rem' }}>
+                <span style={{ width: '34px', textAlign: 'center', fontWeight: '700', fontSize: '0.85rem' }}>
                   {quantity}
                 </span>
                 <button
                   onClick={() => setQuantity(Math.min(product.stock || 10, quantity + 1))}
-                  style={{ width: '36px', height: '36px', fontWeight: '700', fontSize: '1.1rem' }}
+                  style={{ width: '34px', height: '34px', fontWeight: '700', fontSize: '1rem' }}
                 >
                   +
                 </button>
@@ -410,13 +415,13 @@ export const ProductDetailModal = ({ product, onClose, onOpenShop, onDirectCheck
               alignItems: 'center',
               gap: '0.65rem',
               padding: '0.75rem 1rem',
-              borderRadius: 'var(--radius-md)',
+              borderRadius: 'var(--radius-xs)',
               background: 'var(--accent-mint-soft)',
               fontSize: '0.82rem',
               color: '#075037',
               fontWeight: '600'
             }}>
-              <Truck size={18} color="#075037" />
+              <Truck size={17} color="#075037" />
               <span>
                 {product.deliveryDays || `Fast delivery to ${currentDistrictObj.name} within 24-48 hours`}
               </span>
@@ -447,9 +452,9 @@ export const ProductDetailModal = ({ product, onClose, onOpenShop, onDirectCheck
               <button
                 onClick={() => toggleWishlist(product.id)}
                 style={{
-                  width: '48px',
-                  height: '48px',
-                  borderRadius: 'var(--radius-md)',
+                  width: '46px',
+                  height: '46px',
+                  borderRadius: 'var(--radius-xs)',
                   border: '1px solid var(--border-medium)',
                   background: '#FFFFFF',
                   display: 'flex',
@@ -458,16 +463,16 @@ export const ProductDetailModal = ({ product, onClose, onOpenShop, onDirectCheck
                 }}
                 title={isFavorited ? 'In Wishlist' : 'Add to Wishlist'}
               >
-                <Heart size={20} color={isFavorited ? 'var(--accent-pink)' : 'var(--deep-black)'} fill={isFavorited ? 'var(--accent-pink)' : 'none'} />
+                <Heart size={18} color={isFavorited ? 'var(--accent-pink)' : 'var(--deep-black)'} fill={isFavorited ? 'var(--accent-pink)' : 'none'} />
               </button>
 
               {/* Add to Cart */}
               <button
                 onClick={handleAddToCart}
                 className="btn-secondary"
-                style={{ height: '48px', borderRadius: 'var(--radius-md)' }}
+                style={{ height: '46px', borderRadius: 'var(--radius-xs)', letterSpacing: '0.02em', textTransform: 'uppercase' }}
               >
-                <ShoppingBag size={18} />
+                <ShoppingBag size={17} />
                 <span>Add to Cart</span>
               </button>
 
@@ -475,9 +480,9 @@ export const ProductDetailModal = ({ product, onClose, onOpenShop, onDirectCheck
               <button
                 onClick={handleBuyNow}
                 className="btn-primary"
-                style={{ height: '48px', borderRadius: 'var(--radius-md)' }}
+                style={{ height: '46px', borderRadius: 'var(--radius-xs)', letterSpacing: '0.02em', textTransform: 'uppercase' }}
               >
-                <Zap size={18} />
+                <Zap size={17} />
                 <span>Buy Now</span>
               </button>
             </div>

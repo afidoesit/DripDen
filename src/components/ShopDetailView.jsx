@@ -24,17 +24,18 @@ export const ShopDetailView = ({ shop, products, onBack, onOpenProductDetails, o
             display: 'inline-flex',
             alignItems: 'center',
             gap: '0.45rem',
-            fontSize: '0.85rem',
+            fontSize: '0.82rem',
             fontWeight: '700',
+            letterSpacing: '0.02em',
+            textTransform: 'uppercase',
             color: 'var(--deep-black)',
             background: '#FFFFFF',
             padding: '0.45rem 0.95rem',
-            borderRadius: 'var(--radius-pill)',
-            border: '1px solid var(--border-medium)',
-            boxShadow: 'var(--shadow-sm)'
+            borderRadius: 'var(--radius-xs)',
+            border: '1px solid var(--border-medium)'
           }}
         >
-          <ArrowLeft size={16} />
+          <ArrowLeft size={15} />
           <span>Back to All Shops</span>
         </button>
       </div>
@@ -53,14 +54,14 @@ export const ShopDetailView = ({ shop, products, onBack, onOpenProductDetails, o
         }} />
       </div>
 
-      {/* Shop Info Container */}
-      <div className="container" style={{ position: 'relative', marginTop: '-60px' }}>
+      {/* Shop Info Container - Editorial Profile Frame */}
+      <div className="container" style={{ position: 'relative', marginTop: '-50px' }}>
         <div style={{
           background: '#FFFFFF',
-          borderRadius: 'var(--radius-xl)',
-          padding: '1.75rem',
-          border: '1px solid var(--border-light)',
-          boxShadow: 'var(--shadow-md)',
+          borderRadius: 'var(--radius-md)',
+          padding: '1.5rem',
+          border: '1px solid var(--border-medium)',
+          boxShadow: 'none',
           marginBottom: '2.5rem'
         }}>
           <div style={{
@@ -72,12 +73,11 @@ export const ShopDetailView = ({ shop, products, onBack, onOpenProductDetails, o
             <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem' }}>
               <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
                 <div style={{
-                  width: '84px',
-                  height: '84px',
-                  borderRadius: 'var(--radius-lg)',
+                  width: '80px',
+                  height: '80px',
+                  borderRadius: 'var(--radius-xs)',
                   overflow: 'hidden',
-                  border: '3px solid #FFFFFF',
-                  boxShadow: 'var(--shadow-md)',
+                  border: '2px solid #FFFFFF',
                   backgroundColor: 'var(--deep-black)',
                   flexShrink: 0
                 }}>
@@ -194,20 +194,21 @@ export const ShopDetailView = ({ shop, products, onBack, onOpenProductDetails, o
             </div>
 
             {/* Category tabs */}
-            <div style={{ display: 'flex', gap: '0.4rem' }}>
+            <div style={{ display: 'flex', gap: '0.35rem' }}>
               {categories.map((c) => (
                 <button
                   key={c}
                   onClick={() => setShopCategoryTab(c)}
                   style={{
-                    padding: '0.4rem 0.95rem',
-                    borderRadius: 'var(--radius-pill)',
-                    fontSize: '0.8rem',
+                    padding: '0.4rem 0.85rem',
+                    borderRadius: 'var(--radius-xs)',
+                    fontSize: '0.78rem',
                     fontWeight: '700',
+                    letterSpacing: '0.02em',
                     background: shopCategoryTab === c ? 'var(--deep-black)' : '#FFFFFF',
                     color: shopCategoryTab === c ? '#FFFFFF' : 'var(--deep-black)',
                     border: '1px solid var(--border-medium)',
-                    textTransform: 'capitalize'
+                    textTransform: 'uppercase'
                   }}
                 >
                   {c}
@@ -220,9 +221,9 @@ export const ShopDetailView = ({ shop, products, onBack, onOpenProductDetails, o
             <div style={{
               textAlign: 'center',
               padding: '3rem',
-              background: '#FFFFFF',
-              borderRadius: 'var(--radius-lg)',
-              border: '1px dashed var(--border-medium)'
+              background: 'transparent',
+              borderRadius: 'var(--radius-xs)',
+              border: '1px solid var(--border-medium)'
             }}>
               <p>No products listed under this category for this shop.</p>
             </div>

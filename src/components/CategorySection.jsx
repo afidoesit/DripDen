@@ -57,11 +57,11 @@ export const CategorySection = ({ onSelectCategory }) => {
           </button>
         </div>
 
-        {/* Categories Grid */}
+        {/* Categories Grid - Editorial Lookbook Blocks */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '1rem'
+          gridTemplateColumns: 'repeat(1, 1fr)',
+          gap: '1.25rem'
         }} className="categories-grid">
           {CATEGORY_ITEMS.map((cat) => (
             <div
@@ -69,13 +69,13 @@ export const CategorySection = ({ onSelectCategory }) => {
               onClick={() => onSelectCategory(cat.id)}
               style={{
                 position: 'relative',
-                borderRadius: 'var(--radius-lg)',
+                borderRadius: 'var(--radius-xs)',
                 overflow: 'hidden',
                 cursor: 'pointer',
                 aspectRatio: '4 / 3',
                 backgroundColor: 'var(--deep-black)',
-                boxShadow: 'var(--shadow-sm)',
-                transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                border: '1px solid rgba(14, 14, 14, 0.1)',
+                transition: 'opacity 0.2s ease'
               }}
               className="cat-card"
             >
@@ -86,8 +86,8 @@ export const CategorySection = ({ onSelectCategory }) => {
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  opacity: 0.82,
-                  transition: 'transform 0.4s ease'
+                  opacity: 0.88,
+                  transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)'
                 }}
                 className="cat-img"
               />
@@ -95,7 +95,7 @@ export const CategorySection = ({ onSelectCategory }) => {
               <div style={{
                 position: 'absolute',
                 inset: 0,
-                background: 'linear-gradient(to top, rgba(14, 14, 14, 0.85) 0%, rgba(14, 14, 14, 0.2) 60%, transparent 100%)',
+                background: 'linear-gradient(to top, rgba(14, 14, 14, 0.88) 0%, rgba(14, 14, 14, 0.25) 55%, transparent 100%)',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'flex-end',
@@ -103,9 +103,9 @@ export const CategorySection = ({ onSelectCategory }) => {
               }}>
                 <span style={{
                   color: 'var(--accent-mint)',
-                  fontSize: '0.72rem',
+                  fontSize: '0.68rem',
                   fontWeight: '700',
-                  letterSpacing: '0.04em',
+                  letterSpacing: '0.06em',
                   textTransform: 'uppercase',
                   marginBottom: '0.2rem'
                 }}>
@@ -113,17 +113,19 @@ export const CategorySection = ({ onSelectCategory }) => {
                 </span>
                 <h3 style={{
                   color: '#FFFFFF',
-                  fontSize: 'clamp(1.2rem, 2vw, 1.6rem)',
-                  fontWeight: '800',
-                  letterSpacing: '-0.02em',
+                  fontFamily: "'Bebas Neue', sans-serif",
+                  fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
+                  letterSpacing: '0.04em',
+                  lineHeight: 1,
                   marginBottom: '0.15rem'
                 }}>
                   {cat.name}
                 </h3>
                 <p style={{
-                  color: 'rgba(255, 255, 255, 0.75)',
+                  color: 'rgba(255, 255, 255, 0.8)',
                   fontSize: '0.78rem',
-                  display: 'none'
+                  letterSpacing: '0.01em',
+                  margin: 0
                 }} className="cat-sub">
                   {cat.subtitle}
                 </p>
@@ -138,16 +140,9 @@ export const CategorySection = ({ onSelectCategory }) => {
           .categories-grid {
             grid-template-columns: repeat(3, 1fr) !important;
           }
-          .cat-sub {
-            display: block !important;
-          }
-        }
-        .cat-card:hover {
-          transform: translateY(-4px);
-          box-shadow: var(--shadow-md);
         }
         .cat-card:hover .cat-img {
-          transform: scale(1.05);
+          transform: scale(1.04);
         }
       `}</style>
     </section>

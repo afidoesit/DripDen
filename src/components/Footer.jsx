@@ -148,24 +148,17 @@ export const Footer = ({ onNavigateExplore, onNavigateShops }) => {
             </ul>
           </div>
 
-          {/* Brand Palette Swatches */}
+          {/* Trust Guarantees */}
           <div>
-            <h4 style={{ fontSize: '0.92rem', fontWeight: '800', color: '#FFFFFF', marginBottom: '1rem', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
-              Official Identity
+            <h4 style={{ fontSize: '0.92rem', fontWeight: '800', color: '#FFFFFF', marginBottom: '1rem', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+              The DripDen Standard
             </h4>
-            <p style={{ fontSize: '0.78rem', color: '#888', marginBottom: '0.75rem' }}>
-              DripDen Design System Tokens
-            </p>
-            <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
-              <div style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: '#A85CFF' }} title="Primary Purple (#A85CFF)" />
-              <div style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: '#FF7DDC' }} title="Accent Pink (#FF7DDC)" />
-              <div style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: '#4C7BFF' }} title="Secondary Blue (#4C7BFF)" />
-              <div style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: '#6FFFC7' }} title="Accent Mint (#6FFFC7)" />
-              <div style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: '#F5F3EF' }} title="Warm Off-white (#F5F3EF)" />
-            </div>
-            <div style={{ fontSize: '0.75rem', color: '#777' }}>
-              Font: Sora & Plus Jakarta Sans
-            </div>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem', fontSize: '0.82rem', color: '#A3A3A3' }}>
+              <li>✓ 100% Verified Kerala Boutiques</li>
+              <li>✓ Direct Doorstep Dispatch in 24-48h</li>
+              <li>✓ Instant UPI & Cash on Delivery</li>
+              <li>✓ Curated Independent Labels Only</li>
+            </ul>
           </div>
 
         </div>
@@ -194,24 +187,24 @@ export const Footer = ({ onNavigateExplore, onNavigateShops }) => {
 
         <style>{`
           .boutique-owner-banner {
-            background: linear-gradient(135deg, #18181A 0%, #251433 100%);
-            border-radius: var(--radius-lg);
+            background: #141414;
+            border-radius: var(--radius-xs);
             padding: 1.25rem 1.6rem;
-            border: 1px solid rgba(168, 92, 255, 0.28);
-            margin-bottom: 2.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            margin-bottom: 2.5rem;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justifyContent: space-between;
             gap: 1.2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
           }
           .boutique-owner-info {
-            max-width: 540px;
+            max-width: 560px;
           }
           .boutique-badge {
             font-size: 0.65rem !important;
-            padding: 0.2rem 0.55rem !important;
+            padding: 0.2rem 0.5rem !important;
+            border-radius: var(--radius-xs) !important;
             margin-bottom: 0.35rem !important;
           }
           .boutique-title {
@@ -224,15 +217,16 @@ export const Footer = ({ onNavigateExplore, onNavigateShops }) => {
           .boutique-desc {
             font-size: 0.8rem !important;
             color: rgba(255, 255, 255, 0.72) !important;
-            line-height: 1.4 !important;
+            line-height: 1.45 !important;
             margin: 0 !important;
           }
           .boutique-btn {
-            padding: 0.55rem 1.25rem !important;
+            padding: 0.65rem 1.35rem !important;
             font-size: 0.82rem !important;
-            border-radius: var(--radius-pill) !important;
+            border-radius: var(--radius-xs) !important;
             white-space: nowrap !important;
             flex-shrink: 0 !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
           }
 
           @media (max-width: 860px) {

@@ -64,7 +64,7 @@ export const ProfileModal = ({ onTrackOrder, onOpenFirebaseSettings }) => {
           maxWidth: '740px', 
           width: '95%',
           maxHeight: '90vh',
-          borderRadius: 'var(--radius-xl)',
+          borderRadius: '6px',
           overflow: 'hidden',
           display: 'flex',
           flexDirection: 'column'
@@ -81,15 +81,15 @@ export const ProfileModal = ({ onTrackOrder, onOpenFirebaseSettings }) => {
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <div style={{
-              width: '54px',
-              height: '54px',
-              borderRadius: '50%',
-              background: 'linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-pink) 100%)',
+              width: '48px',
+              height: '48px',
+              borderRadius: '2px',
+              background: 'var(--primary-purple)',
               color: '#FFFFFF',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '1.4rem',
+              fontSize: '1.3rem',
               fontWeight: '900',
               fontFamily: 'var(--font-heading)'
             }}>
@@ -113,9 +113,9 @@ export const ProfileModal = ({ onTrackOrder, onOpenFirebaseSettings }) => {
           <button
             onClick={() => setIsProfileModalOpen(false)}
             style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '50%',
+              width: '32px',
+              height: '32px',
+              borderRadius: '2px',
               background: 'rgba(255, 255, 255, 0.15)',
               color: '#FFFFFF',
               display: 'flex',
@@ -123,7 +123,7 @@ export const ProfileModal = ({ onTrackOrder, onOpenFirebaseSettings }) => {
               justifyContent: 'center'
             }}
           >
-            <X size={18} />
+            <X size={16} />
           </button>
         </div>
 
@@ -193,7 +193,7 @@ export const ProfileModal = ({ onTrackOrder, onOpenFirebaseSettings }) => {
                       key={order.id}
                       style={{
                         padding: '1.25rem',
-                        borderRadius: 'var(--radius-lg)',
+                        borderRadius: '4px',
                         border: '1px solid var(--border-medium)',
                         background: '#FFFFFF',
                         display: 'flex',
@@ -230,8 +230,8 @@ export const ProfileModal = ({ onTrackOrder, onOpenFirebaseSettings }) => {
                       {/* Items */}
                       <div style={{ display: 'flex', gap: '0.65rem', overflowX: 'auto', paddingBottom: '0.35rem' }}>
                         {order.items?.map((item, idx) => (
-                          <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--warm-off-white)', padding: '0.4rem 0.65rem', borderRadius: '8px', flexShrink: 0 }}>
-                            <img src={item.image} alt={item.name} style={{ width: '32px', height: '38px', borderRadius: '4px', objectFit: 'cover' }} />
+                          <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--warm-off-white)', padding: '0.4rem 0.65rem', borderRadius: '2px', flexShrink: 0 }}>
+                            <img src={item.image} alt={item.name} style={{ width: '32px', height: '38px', borderRadius: '2px', objectFit: 'cover' }} />
                             <div>
                               <div style={{ fontSize: '0.78rem', fontWeight: '700' }}>{item.name}</div>
                               <div style={{ fontSize: '0.7rem', color: 'var(--muted-text)' }}>
@@ -276,7 +276,8 @@ export const ProfileModal = ({ onTrackOrder, onOpenFirebaseSettings }) => {
                 <form onSubmit={handleAddAddress} style={{
                   background: 'var(--warm-off-white)',
                   padding: '1.25rem',
-                  borderRadius: 'var(--radius-lg)',
+                  border: '1px solid var(--border-medium)',
+                  borderRadius: '4px',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '0.85rem'
@@ -350,7 +351,7 @@ export const ProfileModal = ({ onTrackOrder, onOpenFirebaseSettings }) => {
                       key={addr.id || i}
                       style={{
                         padding: '1rem 1.25rem',
-                        borderRadius: 'var(--radius-md)',
+                        borderRadius: '4px',
                         border: addr.isDefault ? '2px solid var(--primary-purple)' : '1px solid var(--border-medium)',
                         background: '#FFFFFF',
                         display: 'flex',

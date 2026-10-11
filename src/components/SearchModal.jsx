@@ -71,8 +71,10 @@ export const SearchModal = ({ isOpen, onClose, onSelectProduct, onSelectShop }) 
           maxWidth: '680px', 
           width: '95%',
           maxHeight: '85vh',
-          borderRadius: 'var(--radius-xl)',
-          overflow: 'hidden'
+          borderRadius: 'var(--radius-lg)',
+          overflow: 'hidden',
+          border: '1px solid var(--border-medium)',
+          boxShadow: 'var(--shadow-lg)'
         }}
       >
         {/* Search Input Bar */}
@@ -80,11 +82,11 @@ export const SearchModal = ({ isOpen, onClose, onSelectProduct, onSelectShop }) 
           display: 'flex',
           alignItems: 'center',
           gap: '0.85rem',
-          padding: '1.25rem 1.5rem',
+          padding: '1rem 1.25rem',
           borderBottom: '1px solid var(--border-light)',
           background: '#FFFFFF'
         }}>
-          <Search size={22} color="var(--primary-purple)" />
+          <Search size={20} color="var(--primary-purple)" />
           <input
             type="text"
             placeholder="Search clothes, accessories, Kerala shops, or districts..."
@@ -94,7 +96,7 @@ export const SearchModal = ({ isOpen, onClose, onSelectProduct, onSelectShop }) 
             style={{
               flex: 1,
               border: 'none',
-              fontSize: '1.1rem',
+              fontSize: '1rem',
               fontWeight: '600',
               fontFamily: 'var(--font-heading)',
               color: 'var(--deep-black)',
@@ -105,14 +107,15 @@ export const SearchModal = ({ isOpen, onClose, onSelectProduct, onSelectShop }) 
             <button
               onClick={() => setQuery('')}
               style={{
-                width: '28px',
-                height: '28px',
-                borderRadius: '50%',
+                width: '26px',
+                height: '26px',
+                borderRadius: 'var(--radius-xs)',
                 background: 'var(--warm-off-white)',
+                border: '1px solid var(--border-light)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '0.75rem'
+                fontSize: '0.72rem'
               }}
             >
               ✕
@@ -121,11 +124,13 @@ export const SearchModal = ({ isOpen, onClose, onSelectProduct, onSelectShop }) 
           <button
             onClick={onClose}
             style={{
-              padding: '0.4rem 0.85rem',
-              borderRadius: 'var(--radius-pill)',
+              padding: '0.35rem 0.75rem',
+              borderRadius: 'var(--radius-xs)',
               background: 'var(--warm-off-white)',
-              fontSize: '0.82rem',
-              fontWeight: '700'
+              border: '1px solid var(--border-light)',
+              fontSize: '0.78rem',
+              fontWeight: '700',
+              textTransform: 'uppercase'
             }}
           >
             Esc

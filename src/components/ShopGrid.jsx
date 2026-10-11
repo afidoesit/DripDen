@@ -55,19 +55,18 @@ export const ShopGrid = ({ shops, onVisitShop, selectedDistrict, onChangeDistric
           </p>
         </div>
 
-        {/* Filter & Search Bar Controls */}
+        {/* Filter & Search Bar Controls - Editorial Standard */}
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',
           gap: '1rem',
           alignItems: 'center',
           justifyContent: 'space-between',
-          marginBottom: '1.75rem',
+          marginBottom: '2rem',
           background: '#FFFFFF',
-          padding: '1rem 1.25rem',
-          borderRadius: 'var(--radius-lg)',
-          border: '1px solid var(--border-medium)',
-          boxShadow: 'var(--shadow-sm)'
+          padding: '0.85rem 1.25rem',
+          borderRadius: 'var(--radius-md)',
+          border: '1px solid var(--border-medium)'
         }}>
           {/* Shop Search input */}
           <div style={{
@@ -76,10 +75,11 @@ export const ShopGrid = ({ shops, onVisitShop, selectedDistrict, onChangeDistric
             gap: '0.65rem',
             flex: '1 1 260px',
             background: 'var(--warm-off-white)',
-            padding: '0.6rem 1rem',
-            borderRadius: 'var(--radius-pill)'
+            padding: '0.55rem 0.85rem',
+            borderRadius: 'var(--radius-xs)',
+            border: '1px solid var(--border-light)'
           }}>
-            <Search size={16} color="var(--muted-text)" />
+            <Search size={15} color="var(--muted-text)" />
             <input
               type="text"
               placeholder="Search shops by name, locality, or style..."
@@ -89,24 +89,25 @@ export const ShopGrid = ({ shops, onVisitShop, selectedDistrict, onChangeDistric
                 border: 'none',
                 background: 'transparent',
                 width: '100%',
-                fontSize: '0.88rem',
+                fontSize: '0.85rem',
                 color: 'var(--deep-black)'
               }}
             />
           </div>
 
-          {/* District selector pill */}
+          {/* District selector & filters */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
             <div style={{
               display: 'flex',
               alignItems: 'center',
               gap: '0.4rem',
               background: 'var(--warm-off-white)',
-              padding: '0.5rem 0.85rem',
-              borderRadius: 'var(--radius-pill)',
-              fontSize: '0.82rem'
+              padding: '0.45rem 0.75rem',
+              borderRadius: 'var(--radius-xs)',
+              border: '1px solid var(--border-light)',
+              fontSize: '0.8rem'
             }}>
-              <MapPin size={14} color="var(--primary-purple)" />
+              <MapPin size={13} color="var(--primary-purple)" />
               <select
                 value={selectedDistrict}
                 onChange={(e) => onChangeDistrict(e.target.value)}
@@ -114,7 +115,7 @@ export const ShopGrid = ({ shops, onVisitShop, selectedDistrict, onChangeDistric
                   border: 'none',
                   background: 'transparent',
                   fontWeight: '700',
-                  fontSize: '0.82rem',
+                  fontSize: '0.8rem',
                   color: 'var(--deep-black)',
                   cursor: 'pointer'
                 }}
@@ -127,48 +128,54 @@ export const ShopGrid = ({ shops, onVisitShop, selectedDistrict, onChangeDistric
               </select>
             </div>
 
-            {/* Filter pills */}
+            {/* Filter buttons */}
             <div style={{ display: 'flex', gap: '0.35rem' }}>
               <button
                 onClick={() => setActiveFilter('all')}
                 style={{
                   padding: '0.45rem 0.85rem',
-                  borderRadius: 'var(--radius-pill)',
+                  borderRadius: 'var(--radius-xs)',
                   fontSize: '0.78rem',
                   fontWeight: '700',
+                  letterSpacing: '0.02em',
                   background: activeFilter === 'all' ? 'var(--deep-black)' : 'var(--warm-off-white)',
-                  color: activeFilter === 'all' ? '#FFFFFF' : 'var(--deep-black)'
+                  color: activeFilter === 'all' ? '#FFFFFF' : 'var(--deep-black)',
+                  border: '1px solid var(--border-light)'
                 }}
               >
-                All Stores
+                ALL STORES
               </button>
 
               <button
                 onClick={() => setActiveFilter('popular')}
                 style={{
                   padding: '0.45rem 0.85rem',
-                  borderRadius: 'var(--radius-pill)',
+                  borderRadius: 'var(--radius-xs)',
                   fontSize: '0.78rem',
                   fontWeight: '700',
+                  letterSpacing: '0.02em',
                   background: activeFilter === 'popular' ? 'var(--deep-black)' : 'var(--warm-off-white)',
-                  color: activeFilter === 'popular' ? '#FFFFFF' : 'var(--deep-black)'
+                  color: activeFilter === 'popular' ? '#FFFFFF' : 'var(--deep-black)',
+                  border: '1px solid var(--border-light)'
                 }}
               >
-                Popular
+                POPULAR
               </button>
 
               <button
                 onClick={() => setActiveFilter('featured')}
                 style={{
                   padding: '0.45rem 0.85rem',
-                  borderRadius: 'var(--radius-pill)',
+                  borderRadius: 'var(--radius-xs)',
                   fontSize: '0.78rem',
                   fontWeight: '700',
+                  letterSpacing: '0.02em',
                   background: activeFilter === 'featured' ? 'var(--deep-black)' : 'var(--warm-off-white)',
-                  color: activeFilter === 'featured' ? '#FFFFFF' : 'var(--deep-black)'
+                  color: activeFilter === 'featured' ? '#FFFFFF' : 'var(--deep-black)',
+                  border: '1px solid var(--border-light)'
                 }}
               >
-                Featured
+                FEATURED
               </button>
             </div>
           </div>

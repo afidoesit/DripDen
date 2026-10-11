@@ -60,19 +60,18 @@ export const ProductGrid = ({
             </div>
 
             {/* Sort & Filter controls */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.4rem',
                 background: '#FFFFFF',
                 border: '1px solid var(--border-medium)',
-                borderRadius: 'var(--radius-pill)',
+                borderRadius: 'var(--radius-md)',
                 padding: '0.45rem 0.85rem',
-                fontSize: '0.82rem',
-                boxShadow: 'var(--shadow-sm)'
+                fontSize: '0.82rem'
               }}>
-                <ArrowUpDown size={14} color="var(--primary-purple)" />
+                <ArrowUpDown size={13} color="var(--primary-purple)" />
                 <select
                   value={sortOption}
                   onChange={(e) => setSortOption(e.target.value)}
@@ -102,24 +101,23 @@ export const ProductGrid = ({
                   gap: '0.4rem',
                   background: showFilterDrawer ? 'var(--deep-black)' : '#FFFFFF',
                   color: showFilterDrawer ? '#FFFFFF' : 'var(--deep-black)',
-                  border: '1px solid var(--border-medium)',
-                  borderRadius: 'var(--radius-pill)',
+                  border: '1px solid var(--deep-black)',
+                  borderRadius: 'var(--radius-md)',
                   padding: '0.45rem 0.95rem',
                   fontSize: '0.82rem',
-                  fontWeight: '600',
-                  boxShadow: 'var(--shadow-sm)'
+                  fontWeight: '700'
                 }}
               >
-                <SlidersHorizontal size={14} />
+                <SlidersHorizontal size={13} />
                 <span>Filters</span>
               </button>
             </div>
           </div>
 
-          {/* Category Tabs Scrollbar */}
+          {/* Category Tabs Scrollbar - Sleek editorial tabs */}
           <div style={{
             display: 'flex',
-            gap: '0.5rem',
+            gap: '0.4rem',
             overflowX: 'auto',
             paddingBottom: '0.5rem',
             scrollbarWidth: 'none',
@@ -132,16 +130,17 @@ export const ProductGrid = ({
                   key={cat.id}
                   onClick={() => onSelectCategory(cat.id)}
                   style={{
-                    padding: '0.5rem 1.15rem',
-                    borderRadius: 'var(--radius-pill)',
+                    padding: '0.45rem 1rem',
+                    borderRadius: 'var(--radius-xs)',
                     background: isActive ? 'var(--deep-black)' : '#FFFFFF',
                     color: isActive ? '#FFFFFF' : 'var(--deep-black)',
                     border: isActive ? '1px solid var(--deep-black)' : '1px solid var(--border-medium)',
-                    fontSize: '0.82rem',
+                    fontSize: '0.8rem',
                     fontWeight: '700',
+                    letterSpacing: '0.02em',
+                    textTransform: 'uppercase',
                     whiteSpace: 'nowrap',
-                    boxShadow: isActive ? '0 4px 12px rgba(0,0,0,0.15)' : 'none',
-                    transition: 'all 0.18s ease'
+                    transition: 'all 0.15s ease'
                   }}
                 >
                   {cat.name}
@@ -154,10 +153,10 @@ export const ProductGrid = ({
           {showFilterDrawer && (
             <div style={{
               background: '#FFFFFF',
-              borderRadius: 'var(--radius-lg)',
+              borderRadius: 'var(--radius-md)',
               padding: '1.25rem',
               border: '1px solid var(--border-medium)',
-              boxShadow: 'var(--shadow-md)',
+              boxShadow: 'var(--shadow-sm)',
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
               gap: '1.5rem',
@@ -233,9 +232,9 @@ export const ProductGrid = ({
           <div style={{
             textAlign: 'center',
             padding: '4rem 1rem',
-            background: '#FFFFFF',
-            borderRadius: 'var(--radius-lg)',
-            border: '1px dashed var(--border-medium)'
+            background: 'transparent',
+            borderRadius: 'var(--radius-md)',
+            border: '1px solid var(--border-medium)'
           }}>
             <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>No Drops Match Your Filters</h3>
             <p style={{ fontSize: '0.88rem', color: 'var(--muted-text)', marginBottom: '1.25rem' }}>

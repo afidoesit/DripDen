@@ -107,75 +107,78 @@ export const Hero = ({ onShopNow, onExploreShops }) => {
           Connect directly with independent clothing boutiques, sneaker lounges, and curated thrift shops near you.
         </p>
 
-        {/* Action Buttons */}
+        {/* Action Buttons - Confident Streetwear Styling */}
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',
           gap: '1rem',
           alignItems: 'center',
           justifyContent: 'center',
-          marginBottom: '2.75rem'
+          marginBottom: '2.5rem'
         }}>
           <button
             className="btn-primary"
             onClick={onShopNow}
             style={{
-              padding: '1.1rem 2.6rem',
-              fontSize: '1rem',
-              fontWeight: '700',
-              letterSpacing: '0.03em',
-              borderRadius: 'var(--radius-pill)',
-              boxShadow: '0 8px 24px rgba(168, 92, 255, 0.28)'
+              padding: '1rem 2.5rem',
+              fontSize: '0.95rem',
+              fontWeight: '800',
+              letterSpacing: '0.04em',
+              borderRadius: 'var(--radius-md)',
+              border: '1px solid var(--deep-black)',
+              backgroundColor: 'var(--deep-black)'
             }}
           >
             <span>SHOP NOW</span>
-            <ArrowRight size={18} />
+            <ArrowRight size={17} />
           </button>
 
           <button
             className="btn-secondary"
             onClick={onExploreShops}
             style={{
-              padding: '1.1rem 2rem',
-              fontSize: '0.94rem',
-              fontWeight: '700',
-              borderRadius: 'var(--radius-pill)',
-              background: 'rgba(255, 255, 255, 0.85)',
+              padding: '1rem 2.2rem',
+              fontSize: '0.92rem',
+              fontWeight: '800',
+              letterSpacing: '0.02em',
+              borderRadius: 'var(--radius-md)',
+              background: 'rgba(255, 255, 255, 0.9)',
               backdropFilter: 'blur(8px)',
-              border: '1px solid var(--border-medium)'
+              border: '1px solid var(--deep-black)'
             }}
           >
-            <Store size={18} color="var(--primary-purple)" />
-            <span>Browse Shops</span>
+            <Store size={17} color="var(--primary-purple)" />
+            <span>BROWSE SHOPS</span>
           </button>
         </div>
 
-        {/* Stats Bar */}
+        {/* Stats Section - Open Editorial Metric Dividers */}
         <div style={{
-          display: 'inline-flex',
+          display: 'flex',
+          flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '2.5rem',
-          padding: '1.1rem 2.4rem',
-          background: 'rgba(255, 255, 255, 0.72)',
-          backdropFilter: 'blur(10px)',
-          border: '1px solid rgba(14, 14, 14, 0.08)',
-          borderRadius: 'var(--radius-pill)',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.03)'
+          gap: 'clamp(1.5rem, 4vw, 3.5rem)',
+          padding: '1rem 1.5rem',
+          borderTop: '1px solid rgba(14, 14, 14, 0.12)',
+          borderBottom: '1px solid rgba(14, 14, 14, 0.12)',
+          maxWidth: '720px',
+          width: '100%',
+          backgroundColor: 'transparent'
         }}>
           <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '1.5rem', fontWeight: '900', fontFamily: 'var(--font-heading)', lineHeight: 1.1 }}>14</div>
-            <div style={{ fontSize: '0.72rem', color: 'var(--muted-text)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Districts</div>
+            <div style={{ fontSize: '1.6rem', fontWeight: '900', fontFamily: 'var(--font-heading)', lineHeight: 1.1 }}>14</div>
+            <div style={{ fontSize: '0.7rem', color: 'var(--muted-text)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: '700' }}>Districts</div>
           </div>
-          <div style={{ width: '1px', height: '26px', background: 'var(--border-medium)' }} />
+          <div style={{ width: '1px', height: '24px', background: 'rgba(14, 14, 14, 0.12)' }} />
           <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '1.5rem', fontWeight: '900', fontFamily: 'var(--font-heading)', lineHeight: 1.1 }}>50+</div>
-            <div style={{ fontSize: '0.72rem', color: 'var(--muted-text)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Boutiques</div>
+            <div style={{ fontSize: '1.6rem', fontWeight: '900', fontFamily: 'var(--font-heading)', lineHeight: 1.1 }}>50+</div>
+            <div style={{ fontSize: '0.7rem', color: 'var(--muted-text)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: '700' }}>Boutiques</div>
           </div>
-          <div style={{ width: '1px', height: '26px', background: 'var(--border-medium)' }} />
+          <div style={{ width: '1px', height: '24px', background: 'rgba(14, 14, 14, 0.12)' }} />
           <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '1.5rem', fontWeight: '900', fontFamily: 'var(--font-heading)', lineHeight: 1.1 }}>24-48h</div>
-            <div style={{ fontSize: '0.72rem', color: 'var(--muted-text)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Express Delivery</div>
+            <div style={{ fontSize: '1.6rem', fontWeight: '900', fontFamily: 'var(--font-heading)', lineHeight: 1.1 }}>24-48H</div>
+            <div style={{ fontSize: '0.7rem', color: 'var(--muted-text)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: '700' }}>Express Delivery</div>
           </div>
         </div>
 

@@ -12,28 +12,30 @@ export const OrderSuccessModal = ({ order, onClose, onTrackOrder }) => {
         style={{ 
           maxWidth: '540px', 
           width: '95%',
-          borderRadius: 'var(--radius-xl)',
+          borderRadius: 'var(--radius-lg)',
           padding: '2.5rem 2rem',
-          textAlign: 'center'
+          textAlign: 'center',
+          border: '1px solid var(--border-medium)',
+          boxShadow: 'var(--shadow-lg)'
         }}
       >
         {/* Celebration Icon */}
         <div style={{
-          width: '76px',
-          height: '76px',
-          borderRadius: '50%',
+          width: '64px',
+          height: '64px',
+          borderRadius: 'var(--radius-xs)',
           background: 'var(--accent-mint-soft)',
-          border: '2px solid var(--accent-mint)',
+          border: '1px solid var(--accent-mint)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           margin: '0 auto 1.5rem'
         }}>
-          <CheckCircle2 size={42} color="#08543a" />
+          <CheckCircle2 size={36} color="#08543a" />
         </div>
 
         {/* Title */}
-        <span className="drip-badge badge-mint" style={{ marginBottom: '0.65rem' }}>
+        <span className="drip-badge badge-mint" style={{ marginBottom: '0.65rem', borderRadius: 'var(--radius-xs)' }}>
           DRIP SECURED
         </span>
         <h2 style={{ fontSize: '1.8rem', fontWeight: '900', marginBottom: '0.4rem', letterSpacing: '-0.02em' }}>
@@ -47,7 +49,7 @@ export const OrderSuccessModal = ({ order, onClose, onTrackOrder }) => {
         <div style={{
           background: 'var(--warm-off-white)',
           padding: '1.25rem',
-          borderRadius: 'var(--radius-lg)',
+          borderRadius: 'var(--radius-xs)',
           border: '1px solid var(--border-medium)',
           marginBottom: '2rem',
           display: 'flex',
@@ -85,16 +87,16 @@ export const OrderSuccessModal = ({ order, onClose, onTrackOrder }) => {
               onTrackOrder(order);
             }}
             className="btn-primary"
-            style={{ width: '100%', height: '48px', borderRadius: 'var(--radius-pill)', fontSize: '0.92rem' }}
+            style={{ width: '100%', height: '46px', borderRadius: 'var(--radius-xs)', fontSize: '0.88rem', letterSpacing: '0.02em', textTransform: 'uppercase' }}
           >
-            <Truck size={18} />
+            <Truck size={17} />
             <span>Track Order Timeline</span>
           </button>
 
           <button
             onClick={onClose}
             className="btn-secondary"
-            style={{ width: '100%', height: '44px', borderRadius: 'var(--radius-pill)', fontSize: '0.85rem' }}
+            style={{ width: '100%', height: '44px', borderRadius: 'var(--radius-xs)', fontSize: '0.85rem', letterSpacing: '0.02em', textTransform: 'uppercase' }}
           >
             Continue Shopping
           </button>

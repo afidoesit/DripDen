@@ -111,7 +111,9 @@ export const CheckoutModal = ({ isOpen, onClose, onOrderPlaced }) => {
           maxWidth: '780px', 
           width: '95%',
           maxHeight: '92vh',
-          borderRadius: 'var(--radius-xl)'
+          borderRadius: 'var(--radius-lg)',
+          border: '1px solid var(--border-medium)',
+          boxShadow: 'var(--shadow-lg)'
         }}
       >
         {/* Header */}
@@ -119,28 +121,29 @@ export const CheckoutModal = ({ isOpen, onClose, onOrderPlaced }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '1.25rem 1.75rem',
+          padding: '1rem 1.5rem',
           borderBottom: '1px solid var(--border-light)'
         }}>
           <div>
             <h2 style={{ fontSize: '1.25rem', fontWeight: '800' }}>Express Checkout</h2>
-            <p style={{ fontSize: '0.8rem', color: 'var(--muted-text)' }}>
+            <p style={{ fontSize: '0.78rem', color: 'var(--muted-text)' }}>
               Kerala Local Boutique Direct Shipping
             </p>
           </div>
           <button
             onClick={onClose}
             style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '50%',
+              width: '32px',
+              height: '32px',
+              borderRadius: 'var(--radius-xs)',
               background: 'var(--warm-off-white)',
+              border: '1px solid var(--border-light)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
             }}
           >
-            <X size={18} />
+            <X size={16} />
           </button>
         </div>
 
@@ -385,7 +388,8 @@ export const CheckoutModal = ({ isOpen, onClose, onOrderPlaced }) => {
             {/* Right: Order Summary */}
             <div style={{
               background: 'var(--warm-off-white)',
-              borderRadius: 'var(--radius-lg)',
+              borderRadius: 'var(--radius-xs)',
+              border: '1px solid var(--border-medium)',
               padding: '1.25rem',
               display: 'flex',
               flexDirection: 'column',
@@ -410,7 +414,7 @@ export const CheckoutModal = ({ isOpen, onClose, onOrderPlaced }) => {
                       <img
                         src={item.image}
                         alt={item.name}
-                        style={{ width: '48px', height: '54px', borderRadius: '6px', objectFit: 'cover' }}
+                        style={{ width: '48px', height: '54px', borderRadius: 'var(--radius-xs)', border: '1px solid var(--border-light)', objectFit: 'cover' }}
                       />
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ fontSize: '0.82rem', fontWeight: '700', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
@@ -462,7 +466,7 @@ export const CheckoutModal = ({ isOpen, onClose, onOrderPlaced }) => {
                   type="submit"
                   disabled={isSubmitting}
                   className="btn-primary"
-                  style={{ width: '100%', height: '52px', fontSize: '0.95rem', borderRadius: 'var(--radius-pill)' }}
+                  style={{ width: '100%', height: '48px', fontSize: '0.92rem', borderRadius: 'var(--radius-xs)' }}
                 >
                   {isSubmitting ? (
                     <>

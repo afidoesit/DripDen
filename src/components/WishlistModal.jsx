@@ -27,10 +27,12 @@ export const WishlistModal = ({ products, onOpenProductDetails }) => {
           maxWidth: '640px', 
           width: '95%',
           maxHeight: '90vh',
-          borderRadius: 'var(--radius-xl)',
-          padding: '1.75rem',
+          borderRadius: 'var(--radius-lg)',
+          padding: '1.5rem',
           display: 'flex',
-          flexDirection: 'column'
+          flexDirection: 'column',
+          border: '1px solid var(--border-medium)',
+          boxShadow: 'var(--shadow-lg)'
         }}
       >
         {/* Header */}
@@ -43,8 +45,8 @@ export const WishlistModal = ({ products, onOpenProductDetails }) => {
           borderBottom: '1px solid var(--border-light)'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Heart size={20} color="var(--accent-pink)" fill="var(--accent-pink)" />
-            <h3 style={{ fontSize: '1.25rem', fontWeight: '800' }}>Your Saved Drips</h3>
+            <Heart size={18} color="var(--accent-pink)" fill="var(--accent-pink)" />
+            <h3 style={{ fontSize: '1.2rem', fontWeight: '800' }}>Your Saved Drips</h3>
             <span className="drip-badge badge-black" style={{ fontSize: '0.65rem' }}>
               {wishlistProducts.length}
             </span>
@@ -53,16 +55,17 @@ export const WishlistModal = ({ products, onOpenProductDetails }) => {
           <button
             onClick={() => setIsWishlistModalOpen(false)}
             style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '50%',
+              width: '32px',
+              height: '32px',
+              borderRadius: 'var(--radius-xs)',
               background: 'var(--warm-off-white)',
+              border: '1px solid var(--border-light)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
             }}
           >
-            <X size={18} />
+            <X size={16} />
           </button>
         </div>
 
@@ -72,7 +75,7 @@ export const WishlistModal = ({ products, onOpenProductDetails }) => {
           overflowY: 'auto',
           display: 'flex',
           flexDirection: 'column',
-          gap: '1rem',
+          gap: '0.75rem',
           paddingRight: '0.25rem'
         }}>
           {wishlistProducts.length === 0 ? (
@@ -94,7 +97,7 @@ export const WishlistModal = ({ products, onOpenProductDetails }) => {
                   gap: '1rem',
                   alignItems: 'center',
                   padding: '0.75rem',
-                  borderRadius: 'var(--radius-lg)',
+                  borderRadius: 'var(--radius-xs)',
                   background: 'var(--warm-off-white)',
                   border: '1px solid var(--border-light)'
                 }}
@@ -109,7 +112,7 @@ export const WishlistModal = ({ products, onOpenProductDetails }) => {
                   style={{
                     width: '64px',
                     height: '76px',
-                    borderRadius: 'var(--radius-md)',
+                    borderRadius: 'var(--radius-xs)',
                     objectFit: 'cover',
                     cursor: 'pointer'
                   }}
@@ -122,7 +125,7 @@ export const WishlistModal = ({ products, onOpenProductDetails }) => {
                       onOpenProductDetails(p);
                     }}
                     style={{
-                      fontSize: '0.9rem',
+                      fontSize: '0.88rem',
                       fontWeight: '700',
                       color: 'var(--deep-black)',
                       cursor: 'pointer',
@@ -133,7 +136,7 @@ export const WishlistModal = ({ products, onOpenProductDetails }) => {
                   >
                     {p.name}
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--muted-text)', marginTop: '0.15rem' }}>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--muted-text)', marginTop: '0.15rem' }}>
                     {p.shopName} • <span style={{ textTransform: 'capitalize' }}>{p.district}</span>
                   </div>
                   <div style={{
@@ -150,9 +153,9 @@ export const WishlistModal = ({ products, onOpenProductDetails }) => {
                   <button
                     onClick={() => handleMoveToCart(p)}
                     className="btn-primary"
-                    style={{ padding: '0.45rem 0.85rem', fontSize: '0.75rem', borderRadius: 'var(--radius-pill)' }}
+                    style={{ padding: '0.45rem 0.85rem', fontSize: '0.75rem', borderRadius: 'var(--radius-xs)', letterSpacing: '0.02em', textTransform: 'uppercase' }}
                   >
-                    <ShoppingBag size={14} />
+                    <ShoppingBag size={13} />
                     <span>Move to Cart</span>
                   </button>
 
