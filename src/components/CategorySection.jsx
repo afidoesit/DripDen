@@ -26,123 +26,180 @@ const CATEGORY_ITEMS = [
 
 export const CategorySection = ({ onSelectCategory }) => {
   return (
-    <section id="categories-section" style={{ padding: '2rem 0 3rem' }}>
+    <section id="categories-section" style={{ padding: '2rem 0 2.5rem' }}>
       <div className="container">
+        {/* Section header */}
         <div style={{
           display: 'flex',
-          alignItems: 'flex-end',
+          alignItems: 'center',
           justifyContent: 'space-between',
-          marginBottom: '1.5rem'
+          marginBottom: '1.25rem'
         }}>
-          <div>
-            <span className="drip-badge badge-purple-subtle" style={{ marginBottom: '0.4rem' }}>
-              CATEGORIES
-            </span>
-            <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.1rem)', fontWeight: '800' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <span className="drip-badge badge-purple-subtle">CATEGORIES</span>
+            <h2 style={{ fontSize: '1rem', fontWeight: '700', margin: 0 }}>
               Shop by Category
             </h2>
           </div>
-          <button 
+          <button
             onClick={() => onSelectCategory('all')}
-            style={{ 
-              fontSize: '0.88rem', 
-              fontWeight: '700', 
+            style={{
+              fontSize: '0.82rem',
+              fontWeight: '700',
               color: 'var(--primary-purple)',
               display: 'flex',
               alignItems: 'center',
               gap: '0.25rem'
             }}
           >
-            See All Drops →
+            All Drops →
           </button>
         </div>
 
-        {/* Categories Grid - Editorial Lookbook Blocks */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(1, 1fr)',
-          gap: '1.25rem'
-        }} className="categories-grid">
+        {/* Clean uniform grid */}
+        <div className="cat-grid">
           {CATEGORY_ITEMS.map((cat) => (
-            <div
+            <button
               key={cat.id}
               onClick={() => onSelectCategory(cat.id)}
-              style={{
-                position: 'relative',
-                borderRadius: 'var(--radius-xs)',
-                overflow: 'hidden',
-                cursor: 'pointer',
-                aspectRatio: '4 / 3',
-                backgroundColor: 'var(--deep-black)',
-                border: '1px solid rgba(14, 14, 14, 0.1)',
-                transition: 'opacity 0.2s ease'
-              }}
-              className="cat-card"
+              className="cat-tile"
             >
-              <img
-                src={cat.image}
-                alt={cat.name}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  opacity: 0.88,
-                  transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-                className="cat-img"
-              />
-              
-              <div style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'linear-gradient(to top, rgba(14, 14, 14, 0.88) 0%, rgba(14, 14, 14, 0.25) 55%, transparent 100%)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-end',
-                padding: '1.25rem'
-              }}>
-                <span style={{
-                  color: 'var(--accent-mint)',
-                  fontSize: '0.68rem',
-                  fontWeight: '700',
-                  letterSpacing: '0.06em',
-                  textTransform: 'uppercase',
-                  marginBottom: '0.2rem'
-                }}>
-                  {cat.count}
-                </span>
-                <h3 style={{
-                  color: '#FFFFFF',
-                  fontFamily: "'Bebas Neue', sans-serif",
-                  fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
-                  letterSpacing: '0.04em',
-                  lineHeight: 1,
-                  marginBottom: '0.15rem'
-                }}>
-                  {cat.name}
-                </h3>
-                <p style={{
-                  color: 'rgba(255, 255, 255, 0.8)',
-                  fontSize: '0.78rem',
-                  letterSpacing: '0.01em',
-                  margin: 0
-                }} className="cat-sub">
-                  {cat.subtitle}
-                </p>
+              {/* Image */}
+              <div className="cat-img-wrap">
+                <img
+                  src={cat.image}
+                  alt={cat.name}
+                  className="cat-img"
+                />
+                <div className="cat-overlay" />
               </div>
-            </div>
+
+              {/* Label row below image */}
+              <div className="cat-label">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.05rem' }}>
+                  <span className="cat-name">{cat.name}</span>
+                  <span className="cat-sub">{cat.subtitle}</span>
+                </div>
+                <span className="cat-count">{cat.count}</span>
+              </div>
+            </button>
           ))}
         </div>
       </div>
 
       <style>{`
-        @media (min-width: 640px) {
-          .categories-grid {
-            grid-template-columns: repeat(3, 1fr) !important;
+        /* Grid: single row of 3 equal tiles on desktop */
+        .cat-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1px;
+          background: var(--border-light);
+          border: 1px solid var(--border-light);
+        }
+
+        .cat-tile {
+          display: flex;
+          flex-direction: column;
+          background: var(--warm-off-white);
+          text-align: left;
+          cursor: pointer;
+          overflow: hidden;
+          transition: background 0.15s ease;
+        }
+        .cat-tile:hover {
+          background: #EEECE8;
+        }
+
+        /* Image container — fixed consistent height */
+        .cat-img-wrap {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 3 / 4;
+          overflow: hidden;
+          background: #1a1a1a;
+        }
+
+        .cat-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
+          opacity: 0.9;
+          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          display: block;
+        }
+        .cat-tile:hover .cat-img {
+          transform: scale(1.04);
+        }
+
+        .cat-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to bottom,
+            transparent 50%,
+            rgba(14, 14, 14, 0.35) 100%
+          );
+          pointer-events: none;
+        }
+
+        /* Label strip below image */
+        .cat-label {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0.7rem 0.875rem;
+          border-top: 1px solid var(--border-light);
+        }
+
+        .cat-name {
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 1.25rem;
+          letter-spacing: 0.04em;
+          color: var(--deep-black);
+          line-height: 1;
+        }
+
+        .cat-sub {
+          font-size: 0.72rem;
+          color: var(--muted-text);
+          font-weight: 500;
+          margin-top: 0.1rem;
+          display: block;
+        }
+
+        .cat-count {
+          font-size: 0.7rem;
+          font-weight: 700;
+          color: var(--primary-purple);
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+
+        /* Mobile: 2 columns, last tile full width */
+        @media (max-width: 639px) {
+          .cat-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          .cat-tile:last-child {
+            grid-column: 1 / -1;
+          }
+          /* On the full-width last tile, use a landscape ratio */
+          .cat-tile:last-child .cat-img-wrap {
+            aspect-ratio: 16 / 7;
+          }
+          .cat-name {
+            font-size: 1.1rem;
           }
         }
-        .cat-card:hover .cat-img {
-          transform: scale(1.04);
+
+        /* Tablet: same 3-col as desktop */
+        @media (min-width: 640px) {
+          .cat-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
         }
       `}</style>
     </section>
